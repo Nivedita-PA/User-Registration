@@ -12,6 +12,8 @@ public class UserRegistration {
     private static final String Email = "^[A-Z a-z 0-9]+([._+-][0-9 a-z A-Z]+)*@[0-9 a-z A-Z]+."
             + "[a-z A-Z]{2,3}([.][a-z A-Z]{2})*$";
     private static final String Number = "^[1-9]{2}[ ][0-9]{10}$";
+    private static final String Password = "^(?=[0-9 A-Z a-z !@#$%^&*();:]{8,}$)(?=.*?[A-Z]{1,})"
+            + "(?=.*?[0-9]{1,})(?=.*?[!@#$%^&*();:]{1,}).*$";
 
     //method validation
     public static boolean checkValidation(String input, String inputPattern)
@@ -44,6 +46,11 @@ public class UserRegistration {
         return checkValidation(number, Number);
     }
 
+    public static boolean passwordValidation(String password)
+    {
+        return checkValidation(password, Password);
+    }
+
     public static void main(String[] args) {
 
         //First Name
@@ -65,6 +72,11 @@ public class UserRegistration {
         System.out.println("Enter the number for user");
         String userNo = sc.next();
         System.out.println(mobileNoValidation(userNo));
+
+        //Password
+        System.out.println("Enter the password for user");
+        String userPassword = sc.next();
+        System.out.println(passwordValidation(userPassword));
         
     }
 
