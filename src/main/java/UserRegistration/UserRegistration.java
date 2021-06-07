@@ -11,7 +11,8 @@ public class UserRegistration {
     private static final String Last_Name = "[A-Z][a-z]{2,}";
     private static final String Email = "^[A-Z a-z 0-9]+([._+-][0-9 a-z A-Z]+)*@[0-9 a-z A-Z]+."
             + "[a-z A-Z]{2,3}([.][a-z A-Z]{2})*$";
-    
+    private static final String Number = "^[1-9]{2}[ ][0-9]{10}$";
+
     //method validation
     public static boolean checkValidation(String input, String inputPattern)
     {
@@ -38,6 +39,11 @@ public class UserRegistration {
         return checkValidation(email, Email);
     }
 
+    public static boolean mobileNoValidation(String number)
+    {
+        return checkValidation(number, Number);
+    }
+
     public static void main(String[] args) {
 
         //First Name
@@ -54,6 +60,11 @@ public class UserRegistration {
         System.out.println("Enter the email for user");
         String userEmail = sc.next();
         System.out.println(emailValidation(userEmail));
+
+        //Mobile Number
+        System.out.println("Enter the number for user");
+        String userNo = sc.next();
+        System.out.println(mobileNoValidation(userNo));
         
     }
 
