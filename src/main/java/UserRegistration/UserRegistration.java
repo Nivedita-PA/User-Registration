@@ -9,7 +9,9 @@ public class UserRegistration {
 
     private static final String First_Name = "[A-Z][a-z]{2,}";
     private static final String Last_Name = "[A-Z][a-z]{2,}";
-
+    private static final String Email = "^[A-Z a-z 0-9]+([._+-][0-9 a-z A-Z]+)*@[0-9 a-z A-Z]+."
+            + "[a-z A-Z]{2,3}([.][a-z A-Z]{2})*$";
+    
     //method validation
     public static boolean checkValidation(String input, String inputPattern)
     {
@@ -31,6 +33,11 @@ public class UserRegistration {
         return checkValidation(lastName, Last_Name);
     }
 
+    public static boolean emailValidation(String email)
+    {
+        return checkValidation(email, Email);
+    }
+
     public static void main(String[] args) {
 
         //First Name
@@ -42,6 +49,11 @@ public class UserRegistration {
         System.out.println("Enter last Name");
         String userLastName = sc.next();
         System.out.println(isValidLastName(userLastName));
+
+        //Email ID
+        System.out.println("Enter the email for user");
+        String userEmail = sc.next();
+        System.out.println(emailValidation(userEmail));
         
     }
 
